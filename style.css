@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background-color: black;
+    z-index: -1;
+}
+
+body {
+    margin: 0 10%;
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+
+div {
+    margin: 0;
+}
+
+.header {
+    display:inline-block;
+    background-color: black;
+    color: white;
+    width: 100%;
+    margin: 0;
+}
+
+.main {
+    padding: 1% 0 3% 0;
+    width: 100%;
+    border: black solid 1%;
+    background-color:white;
+}
+
+.gamespace {
+    display:block;
+    width:100%;
+    border: black solid 0;
+    padding: 5% 0;
+}
+
+.playArea {
+    background-color:#DEB887;
+    height: 600px;
+    width: 600px;
+    margin: 0 auto;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: 0;
+    font-family: 'Raleway', sans-serif;
+    padding: 15px 32px;
+    font-size: 30px;
+}
+
+.footer {
+    display: inline-block;
+    background-color: black;
+    color: white;
+    width: 100%;
+}
+
+.footer p {
+    position: relation;
+    float: right;
+    padding: 0.5% 2%;
+}
+
+h2 {
+    margin:2%;
+}
+
