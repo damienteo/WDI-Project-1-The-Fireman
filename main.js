@@ -1,3 +1,5 @@
+//note: to prevent further appending after initial start of game
+
 window.onload=function() {
     document.getElementById("startButton").addEventListener("click", startGame)
 };
@@ -22,25 +24,69 @@ var playerPosition = {
     cell: 1
 };
 
-playerPosition.row;
-playerPosition.cell;
+// var playerDir = {
+//     "up": 1,
+//     "right": 2,
+//     "down": 3,
+//     "left": 4
+// };
+
+// var currentPlayerDir = playerDir["right"];
+
+function setPlayer() {
+    setInterval(drawPlayer, 50);
+}
+
+function removePlayer() {
+    setInterval(clearPlayer, 50);
+}
+
+function myStopFunction() {
+    clearInterval(setPlayer);
+    clearInterval(removePlayer);
+}
 
 function startGame() {
     for (var i = 0; i < playArea; i++) {
         var rowDiv = document.createElement('div');
         rowDiv.className = "row";
-        rowDiv.id = i;
+        rowDiv.id = "row"+i;
         gameArea.appendChild(rowDiv);
         var currentRow = document.querySelectorAll(".row")[i];
         for (var j = 0; j < playArea; j++) {
-            console.log(j)
             var cellDiv = document.createElement('div');
             cellDiv.className = "cell";
-            cellDiv.id = j;
+            cellDiv.id = "row"+i+"cell"+j;
             currentRow.appendChild(cellDiv);
         }
     }
+    setPlayer();
+    removePlayer();
 }
+
+function drawPlayer() {
+    // console.log("run");
+    var updateRow = playerPosition.row;
+    var updateCell = playerPosition.cell;
+    var newPosition = "row"+updateRow+"cell"+updateCell;
+    var getCell= document.getElementById(newPosition);
+    getCell.classList.add("player");
+}
+
+function clearPlayer() {
+    // console.log("run");
+    var updateRow = playerPosition.row;
+    var updateCell = playerPosition.cell;
+    var newPosition = "row"+updateRow+"cell"+updateCell;
+    var allPlayers = document.querySelectorAll(".player");
+    console.log("clearPlayer");
+    for (var i=0; i<allPlayers.length; i++){
+        if (allPlayers[i].id != newPosition) {
+            allPlayers[i].classList.remove("player");
+        }
+    }
+}
+
 
 function playerMove(e) {
     // keyCode for up arrow key is 38
@@ -48,7 +94,7 @@ function playerMove(e) {
         playerPosition.row -= 1;
         console.log(playerPosition.row);
         console.log("up");
-        if (playerPosition.row <= 0) {
+        if (playerPosition.row < 0) {
             playerPosition.row += 1;
         }
     }
@@ -57,7 +103,7 @@ function playerMove(e) {
         playerPosition.cell += 1;
         console.log(playerPosition.cell);
         console.log("right");
-        if (playerPosition.cell >= 29) {
+        if (playerPosition.cell > 29) {
             playerPosition.cell -= 1;
         }
     }
@@ -66,7 +112,7 @@ function playerMove(e) {
         playerPosition.row += 1;
         console.log(playerPosition.row);
         console.log("down");
-        if (playerPosition.row >= 29) {
+        if (playerPosition.row > 29) {
             playerPosition.row -= 1;
         }
     }
@@ -75,7 +121,7 @@ function playerMove(e) {
         playerPosition.cell -= 1;
         console.log(playerPosition.cell);
         console.log("left");
-        if (playerPosition.cell <= 0) {
+        if (playerPosition.cell < 0) {
             playerPosition.cell += 1;
         }
     }

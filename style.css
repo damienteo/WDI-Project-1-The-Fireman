@@ -47,7 +47,7 @@ button {
 }
 
 #game-area {
-    background-color: gray;
+    background-color: green;
     display: inline-block;
     margin-top: 1%;
 }
@@ -55,7 +55,7 @@ button {
 .cell {
     height: 20px;
     width: 20px;
-    background-color: green;
+    background-color: gray;
     position: relative;
     display: inline-block;
     z-index: 1;
@@ -67,6 +67,10 @@ button {
     background-color: black;
     color: white;
     width: 100%;
+}
+
+.player {
+    background-color: blue;
 }
 
 h2 {
