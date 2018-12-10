@@ -1,6 +1,5 @@
-
-// move player into fire to initiate typing
 // reset game upon lose conditions
+//autofocus for input does not work when game starts
 // fires have timer which will cause fire to spread
 // addition of timer, player has to last a cerain amount of time before help arrives.
 // lose condition when fire reaches certain percent of the map, based on queryselectorall.length

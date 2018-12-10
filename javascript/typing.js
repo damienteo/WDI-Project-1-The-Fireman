@@ -11,8 +11,9 @@ function startType() {
     wordInput.addEventListener("input", wordMatch);
     message.innerHTML = "";
     wordInput.value="";
-    return wordMatch;
 }
+
+var typeResult = startType();
 
 function showWord(wordList) {
     var wordIndex = Math.floor(Math.random() * wordList.length);
@@ -25,6 +26,7 @@ function wordMatch(wordInput) {
         wordInput.value="";
         currentWord.innerHTML = "";
         score++;
+        typingOn = false;
     }
     scoreDisplay.innerHTML = score;
 }

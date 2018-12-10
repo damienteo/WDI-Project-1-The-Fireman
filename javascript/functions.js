@@ -8,7 +8,9 @@ var playerPosition = {
     cell: 1
 };
 
-var message = document.querySelector(".message");
+var message = document.querySelector("#notification");
+
+var fireLeft = document.querySelector("#fireStatus");
 
 var timeLeft = document.querySelector(".timeLeft");
 
@@ -19,6 +21,8 @@ var time = 180;
 var score = 0;
 
 var run;
+
+var typingOn = false;
 
 function countdown() {
     if (time > 0) {
@@ -31,8 +35,10 @@ function countdown() {
 
 function checkStatus() {
     var fireStatus = document.querySelectorAll(".fire");
+    var firePercentage = Math.round((fireStatus.length/(playArea*playArea))*100)
     if ((time <= 0) || (fireStatus.length >= fireTreshold)) {
         message.innerHTML = "Game Over!";
+        fireLeft.innerHTML = firePercentage+"% of the forest is still on fire.";
     }
 }
 
@@ -61,9 +67,10 @@ function drawPlayer() {
     getCell.classList.add("player");
     if (getCell.className == "cell fire player") {
         startType();
+        typingOn = true;
         getCell.classList.remove("fire");
-        // if (startType == false) {
-        //     getCell.classList.add("fire");
+        // if (typeResult == true) {
+        //     typingOn = false;
         // }
     }
 }
@@ -92,28 +99,28 @@ function playerMove(e) {
     // keyCode for up arrow key is 38
     if (e.keyCode==38) {
         playerPosition.row -= 1;
-        if (playerPosition.row < 0) {
+        if ((playerPosition.row < 0) || (typingOn == true)) {
             playerPosition.row += 1;
         }
     }
 // keyCode for right arrow key is 39
     if (e.keyCode==39) {
         playerPosition.cell += 1;
-        if (playerPosition.cell >= playArea) {
+        if ((playerPosition.cell >= playArea)  || (typingOn == true)) {
             playerPosition.cell -= 1;
         }
     }
 // keyCode for down arrow key is 40
     if (e.keyCode==40) {
         playerPosition.row += 1;
-        if (playerPosition.row >= playArea) {
+        if ((playerPosition.row >= playArea) || (typingOn == true)) {
             playerPosition.row -= 1;
         }
     }
 // keyCode for left arrow key is 37
     if (e.keyCode==37) {
         playerPosition.cell -= 1;
-        if (playerPosition.cell < 0) {
+        if ((playerPosition.cell < 0) || (typingOn == true)) {
             playerPosition.cell += 1;
         }
     }
