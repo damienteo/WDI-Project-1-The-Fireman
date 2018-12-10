@@ -69,8 +69,16 @@ button {
     width: 100%;
 }
 
+.fire {
+    background-color: red;
+}
+
 .player {
     background-color: blue;
+}
+
+.fire.player {
+    background-image: radial-gradient(blue, red);
 }
 
 h2 {
