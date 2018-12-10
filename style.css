@@ -35,19 +35,10 @@ div {
     text-align: center;
 }
 
-button {
-    background-color: black;
-    color: white;
-    border: 0;
-    font-family: 'Raleway', sans-serif;
-    padding: 15px 32px;
-    font-size: 30px;
-    margin: 0 auto;
-    display: block;
-}
+
 
 #game-area {
-    background-color: green;
+    background-color: brown;
     display: inline-block;
     margin-top: 1%;
 }
@@ -55,7 +46,7 @@ button {
 .cell {
     height: 20px;
     width: 20px;
-    background-color: gray;
+    background-color: green;
     position: relative;
     display: inline-block;
     z-index: 1;
@@ -85,6 +76,29 @@ h2 {
     margin:2% 0;
 }
 
+.userMenu {
+    display: inline-block;
+    /*background-color: red;*/
+    vertical-align:top;
+    margin: 5% 2%;
+    text-align: center;
+}
+
+.userMenu * {
+    margin: 5% 0;
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: 0;
+    font-family: 'Raleway', sans-serif;
+    padding: 15px 32px;
+    font-size: 30px;
+    margin: 0 auto;
+    display: block;
+}
+
 .playArea {
     background-color:#DEB887;
     height: 620px;
@@ -92,6 +106,7 @@ h2 {
     margin: 0 auto;
     border: black solid 20px;
     position: relative;
+    display: inline-block;
 }
 
 

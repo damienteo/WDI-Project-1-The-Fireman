@@ -1,5 +1,6 @@
 
 // move player into fire to initiate typing
+// reset game upon lose conditions
 // fires have timer which will cause fire to spread
 // addition of timer, player has to last a cerain amount of time before help arrives.
 // lose condition when fire reaches certain percent of the map, based on queryselectorall.length
@@ -9,6 +10,7 @@
 // popup with clear instructions
 // sprites for better feel
 // mediaquery for when browser is below a certain width
+// generating wordlist from an API
 
 window.onload=function() {
     document.getElementById("startButton").addEventListener("click", startGame)
@@ -23,7 +25,8 @@ window.addEventListener("keydown", function(e) {
 
 document.addEventListener('keydown', playerMove);
 
-hoverButton();
+hoverStart();
+hoverInstruction();
 
 // var playerDir = {
 //     "up": 1,
@@ -51,6 +54,8 @@ function startGame() {
     setPlayer();
     removePlayer();
     fireGenerator();
+    setInterval(countdown, 1000);
+    setInterval(checkStatus, 50);
 }
 
 
