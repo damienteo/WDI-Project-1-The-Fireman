@@ -9,6 +9,15 @@ var playerPosition = {
 
 var score = 0;
 
+// function countdown() {
+//     if (time > 0) {
+//         time --;
+//     } else if (time === 0) {
+//         run = false;
+//     }
+//     timeLeft.innerHTML = time;
+// }
+
 function setPlayer() {
     setInterval(drawPlayer, 50);
 }
@@ -18,7 +27,7 @@ function removePlayer() {
 }
 
 function fireGenerator() {
-    setInterval(startFire, 500);
+    setInterval(startFire, 2000);
 }
 
 function myStopFunction() {
@@ -34,7 +43,8 @@ function drawPlayer() {
     var getCell= document.getElementById(newPosition);
     getCell.classList.add("player");
     if (getCell.className == "cell fire player") {
-        console.log("FIRE");
+        getCell.classList.remove("fire");
+        prompt("FIRE");
     }
 }
 
@@ -50,12 +60,19 @@ function clearPlayer() {
     }
 }
 
+// function playerOnFire(){
+//     if (getCell.className == "cell fire player") {
+//         console.log("FIRE");
+//     }
+// }
+
 function startFire() {
     var fireRow = Math.floor(Math.random() * playArea);
     var fireCell = Math.floor(Math.random() * playArea);
     var firePosition = "row"+fireRow+"cell"+fireCell;
     var getCell= document.getElementById(firePosition);
     getCell.classList.add("fire");
+    // getCell.addEventListener("click", playerOnFire);
 }
 
 function playerMove(e) {
@@ -88,6 +105,12 @@ function playerMove(e) {
         }
     }
 }
+
+// function checkStatus() {
+//     if ((!run) && (time === 0)) {
+//         message.innerHTML = "Game Over!";
+//     }
+// }
 
 var hoverButton =  function() {
     document.getElementById("startButton").addEventListener("mouseover", function(){

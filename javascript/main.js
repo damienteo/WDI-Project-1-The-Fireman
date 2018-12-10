@@ -8,6 +8,7 @@
 //note: to prevent further appending after initial start of game
 // popup with clear instructions
 // sprites for better feel
+// mediaquery for when browser is below a certain width
 
 window.onload=function() {
     document.getElementById("startButton").addEventListener("click", startGame)
@@ -51,6 +52,8 @@ function startGame() {
     removePlayer();
     fireGenerator();
 }
+
+
 
 
 
