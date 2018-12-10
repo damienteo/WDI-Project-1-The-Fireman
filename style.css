@@ -16,6 +16,7 @@ body {
 
 div {
     margin: 0;
+    padding: 0;
 }
 
 .header {
@@ -23,7 +24,7 @@ div {
     background-color: black;
     color: white;
     width: 100%;
-    margin: 0;
+    margin: 2% 0;
 }
 
 .main {
@@ -31,20 +32,7 @@ div {
     width: 100%;
     border: black solid 1%;
     background-color:white;
-}
-
-.gamespace {
-    display:block;
-    width:100%;
-    border: black solid 0;
-    padding: 5% 0;
-}
-
-.playArea {
-    background-color:#DEB887;
-    height: 600px;
-    width: 600px;
-    margin: 0 auto;
+    text-align: center;
 }
 
 button {
@@ -54,6 +42,24 @@ button {
     font-family: 'Raleway', sans-serif;
     padding: 15px 32px;
     font-size: 30px;
+    margin: 0 auto;
+    display: block;
+}
+
+#game-area {
+    background-color: gray;
+    display: inline-block;
+    margin-top: 1%;
+}
+
+.cell {
+    height: 20px;
+    width: 20px;
+    background-color: green;
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+    margin: 0 3px;
 }
 
 .footer {
@@ -63,13 +69,18 @@ button {
     width: 100%;
 }
 
-.footer p {
-    position: relation;
-    float: right;
-    padding: 0.5% 2%;
+h2 {
+    margin:2% 0;
 }
 
-h2 {
-    margin:2%;
+.playArea {
+    background-color:#DEB887;
+    height: 620px;
+    width: 620px;
+    margin: 0 auto;
+    border: black solid 20px;
+    position: relative;
 }
+
+
 
