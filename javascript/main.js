@@ -3,17 +3,17 @@
 // Time left is highlighted by the timer. Once 50% of the forest is on fire, the player loses the game.
 
 
+// popup with clear instructions
+//levels based on time fire spreads, letters in words, time before help arrives (select with radio buttons)
+// sprites for better feel
+// generating wordlist from an API
 // fires have timer which will cause fire to spread
 // fires to start at different cell if cell already has fire class
-
 //note: to prevent further appending after initial start of game
+// reset game mid-game
 // displaying percentage of forest on fire as a progress bar
 //fixing the issue where the div css does not update when the player is on the fire div
-// popup with clear instructions
-//levels based on time fire spreads, letters in words, time before help arrives
-// sprites for better feel
 // mediaquery for when browser is below a certain width
-// generating wordlist from an API
 
 window.onload=function() {
     document.getElementById("startButton").addEventListener("click", startGame)
