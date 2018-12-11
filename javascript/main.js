@@ -3,9 +3,8 @@
 // Time left is highlighted by the timer. Once 50% of the forest is on fire, the player loses the game.
 
 
-//autofocus for input does not work when game starts
 // fires have timer which will cause fire to spread
-//game reset - remove child
+// fires to start at different cell if cell already has fire class
 
 //note: to prevent further appending after initial start of game
 // displaying percentage of forest on fire as a progress bar
@@ -50,9 +49,9 @@ var timeLeft = document.querySelector(".timeLeft");
 
 var scoreDisplay = document.querySelector(".scoreDisplay");
 
-var time = 180;
+var time;
 
-var score = 0;
+var score;
 
 var run;
 
@@ -86,13 +85,25 @@ function removePlayer() {
 }
 
 function fireGenerator() {
-    generatingFire = setInterval(startFire, 1000);
+    generatingFire = setInterval(startFire, 100);
+}
+
+function countingDown() {
+    counter = setInterval(countdown, 1000);
+}
+
+function statusUpdate() {
+    updatingStatus = setInterval(checkStatus, 50);
 }
 
 function myStopFunction() {
     clearInterval(settingPlayer);
     clearInterval(removingPlayer);
     clearInterval(generatingFire);
+    clearInterval(counter);
+    clearInterval(updatingStatus);
+    stopWordMatch();
+    clearGame();
 }
 
 // var playerDir = {
@@ -118,13 +129,15 @@ function startGame() {
             currentRow.appendChild(cellDiv);
         }
     }
+    time = 60;
+    score = 0;
     setPlayer();
     removePlayer();
     fireGenerator();
-    setInterval(countdown, 1000);
-    setInterval(checkStatus, 50);
+    countingDown();
+    statusUpdate();
+    startWordMatch();
 }
-
 
 
 

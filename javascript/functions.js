@@ -66,6 +66,13 @@ function playerMove(e) {
     }
 }
 
+function clearGame() {
+    var clearRow =document.querySelectorAll(".row");
+    for (var i = 0; i < clearRow.length; i++) {
+        clearRow[i].parentNode.removeChild(clearRow[i]);
+    }
+}
+
 var hoverStart =  function() {
     document.getElementById("startButton").addEventListener("mouseover", function(){
     document.getElementById("startButton").style.backgroundColor = "white";
