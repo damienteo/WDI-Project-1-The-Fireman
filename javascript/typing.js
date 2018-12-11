@@ -9,11 +9,10 @@ var wordList = ["spotless", "land", "abundant", "balance", "arrive", "furry", "a
 function startType() {
     showWord(wordList);
     wordInput.addEventListener("input", wordMatch);
+    wordInput.focus();
     message.innerHTML = "";
     wordInput.value="";
 }
-
-var typeResult = startType();
 
 function showWord(wordList) {
     var wordIndex = Math.floor(Math.random() * wordList.length);
