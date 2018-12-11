@@ -35,8 +35,6 @@ div {
     text-align: center;
 }
 
-
-
 #game-area {
     background-color: #006400;
     display: inline-block;
@@ -47,6 +45,8 @@ div {
     height: 20px;
     width: 20px;
     background-color: green;
+    background-image: url("images/tree.png");
+    background-size: cover;
     position: relative;
     display: inline-block;
     z-index: 1;
@@ -62,6 +62,8 @@ div {
 
 .fire {
     background-color: red;
+    background-image: url("images/fire.png");
+    background-size: cover;
     animation: shake 2s;
     animation-iteration-count: infinite;
 }
@@ -82,11 +84,13 @@ div {
 
 .player {
     background-color: blue;
+    background-image: url("images/fireman.png");
+    background-size: cover;
 }
 
-.fire.player {
+/*.fire.player {
     background-image: radial-gradient(blue, red);
-}
+}*/
 
 h2 {
     margin:2% 0;
@@ -115,15 +119,6 @@ button {
     display: block;
 }
 
-.playArea {
-    background-color:#DEB887;
-    height: 620px;
-    width: 620px;
-    margin: 0 auto;
-    border: black solid 20px;
-    position: relative;
-    display: inline-block;
-}
 
 
 

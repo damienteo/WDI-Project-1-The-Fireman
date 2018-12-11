@@ -4,6 +4,8 @@
 
 
 // popup with clear instructions
+//change fireman to blue uniform
+//resize fireimage
 //levels based on time fire spreads, letters in words, time before help arrives (select with radio buttons)
 // sprites for better feel
 // generating wordlist from an API
@@ -49,7 +51,7 @@ var timeLeft = document.querySelector(".timeLeft");
 
 var scoreDisplay = document.querySelector(".scoreDisplay");
 
-var time;
+var time = 60;
 
 var score;
 
@@ -129,7 +131,7 @@ function startGame() {
             currentRow.appendChild(cellDiv);
         }
     }
-    time = 60;
+    time=60;
     score = 0;
     setPlayer();
     removePlayer();
