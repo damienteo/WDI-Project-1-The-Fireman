@@ -29,6 +29,29 @@ var typingOn = false;
 //     var updateCell = playerPosition.cell;
 // }
 
+function hideItems() {
+  var hideInstructions = document.getElementById("instructions");
+  if (hideInstructions.style.display === "none") {
+    hideInstructions.style.display = "inline-block";
+  } else {
+    hideInstructions.style.display = "none";
+  }
+
+  var hideHeader = document.querySelectorAll(".header")[0];
+  if (hideHeader.style.display === "none") {
+    hideHeader.style.display = "inline-block";
+  } else {
+    hideHeader.style.display = "none";
+  }
+
+  var hideStart = document.getElementById("startButton");
+  if (hideStart.style.display === "none") {
+    hideStart.style.display = "inline-block";
+  } else {
+    hideStart.style.display = "none";
+  }
+}
+
 function positionUpdate() {
     var updateRow = playerPosition.row;
     var updateCell = playerPosition.cell;
@@ -204,21 +227,10 @@ function clearGame() {
 var hoverStart =  function() {
     document.getElementById("startButton").addEventListener("mouseover", function(){
     document.getElementById("startButton").style.backgroundColor = "white";
-    document.getElementById("startButton").style.color = "#2b1d0e";
+    document.getElementById("startButton").style.color = "#8B0000";
     })
     document.getElementById("startButton").addEventListener("mouseout", function(){
-    document.getElementById("startButton").style.backgroundColor = "#2b1d0e";
+    document.getElementById("startButton").style.backgroundColor = "#8B0000";
       document.getElementById("startButton").style.color = "white";
-    })
-}
-
-var hoverInstruction =  function() {
-    document.getElementById("instructionButton").addEventListener("mouseover", function(){
-    document.getElementById("instructionButton").style.backgroundColor = "white";
-    document.getElementById("instructionButton").style.color = "#2b1d0e";
-    })
-    document.getElementById("instructionButton").addEventListener("mouseout", function(){
-    document.getElementById("instructionButton").style.backgroundColor = "#2b1d0e";
-      document.getElementById("instructionButton").style.color = "white";
     })
 }

@@ -103,7 +103,7 @@ h2 {
 .userMenu {
     display: inline-block;
     vertical-align:top;
-    margin: 5% 2%;
+    margin: 0 2%;
     text-align: center;
 }
 
@@ -120,12 +120,13 @@ input {
 }
 
 button {
-    background-color: #2b1d0e;
+    background-color: #8B0000;
     color: white;
     border: 0;
     font-family: 'Open Sans', sans-serif;
     padding: 15px 32px;
     font-size: 30px;
+    font-weight:bold;
     margin: 0 auto;
     display: inline-block;
 }
@@ -134,6 +135,44 @@ button {
     color: #8B0000;
     font-weight: bold;
 }
+
+#instructions {
+    display: inline-block;
+    background-color: white;
+    vertical-align:top;
+    margin: 1% 2%;
+    text-align: justify;
+    width: 40%;
+    padding:2%;
+    border: #2b1d0e solid 10px;
+    border-radius: 5%;
+}
+
+#instructions p{
+    line-height: 45px;
+    display: inline;
+    vertical-align: middle
+}
+
+#instructions img{
+    position: relative;
+    float: left;
+}
+
+.emphasis {
+    font-weight: bold;
+}
+
+/*.lastpara{
+    display: inline-block;
+    float:right;
+}
+
+.lastimg{
+    position: static;
+    display: inline-block;
+}*/
+
 
 
 

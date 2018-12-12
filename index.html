@@ -12,7 +12,6 @@
     </div>
     <div class = "main">
         <div class="userMenu">
-            <button type="button" id="startButton">Start Game</button>
             <h2 class="currentWord">Word goes here</h2>
             <input type="text" class="playerInput" placeholder="start typing here">
             <h2 class = "message" id="notification"></h2>
@@ -20,7 +19,37 @@
             <p class = "message"><span id="fireStatus">0</span>% of the forest is on fire.</p>
             <h3> Time Left: <span class="timeLeft">180</span> seconds</h3>
             <h3>Score: <span class="scoreDisplay">0</span></h3>
-            <button type="button" id="instructionButton">Instructions</button>
+            <button type="button" id="startButton">Start Game</button>
+        </div>
+        <div id="instructions">
+            <div><img src="">
+                <img src="images/fireman3-clear.png">
+                <p>You are the <span class="emphasis">Fireman</span>.</p>
+            </div>
+            <div>
+                <img src="images/tree3-clear.png">
+                <p>You have to protect the <span class="emphasis">trees</span>.</p>
+            </div>
+            <div>
+                <img src="images/fire3-clear.png">
+                <p><span class="emphasis">Fires</span> can start from random points.</p>
+            </div>
+            <div>
+                <img src="images/compass.png">
+                <p>The <span class="emphasis">north-west wind</span> spreads fires.</p>
+            </div>
+            <div>
+                <img src="images/arrowkeys.png">
+                <p>Move onto the fire with arrow keys.</p>
+            </div>
+            <div>
+                <img src="images/typing.png">
+                <p>Type the words shown.</p>
+            </div>
+            <div>
+                <img src="images/hourglass.png">
+                <p>Keep <span class="emphasis">at least 50%</span> of the trees safe.</p>
+            </div>
         </div>
         <div id="game-area">
         </div>

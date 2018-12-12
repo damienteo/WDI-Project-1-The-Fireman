@@ -3,16 +3,8 @@
 // Time left is highlighted by the timer. Once 50% of the forest is on fire, the player loses the game.
 //fire starts in two ways. They either start randomly, or spread via wind from existing fires. The wind blows in the northwest direction.
 
-// popup with clear instructions - append div (inner html will dictate the content) (style will be determined by css)
-//format input
-
 //levels based on time fire spreads, letters in words, time before help arrives (select with radio buttons)
 // generating wordlist from an API
-//fixing faulty scoring after start of new game
-
-
-//note: to prevent further appending after initial start of game (hide start button)
-
 //fixing the issue where the div css does not update when the player is on the fire div (what is currently stopping it?)
 
 
@@ -30,7 +22,6 @@ window.addEventListener("keydown", function(e) {
 document.addEventListener('keydown', playerMove);
 
 hoverStart();
-hoverInstruction();
 
 function countdown() {
     if (time > 0) {
@@ -45,7 +36,10 @@ function checkStatus() {
     var fireStatus = document.querySelectorAll(".fire");
     var firePercentage = Math.round((fireStatus.length/(playArea*playArea))*100)
     fireLeft.innerHTML = firePercentage;
-    if ((time <= 0) || (fireStatus.length >= fireTreshold)) {
+    if (time <= 0) {
+        message.innerHTML = "You win!";
+        myStopFunction();
+    }   else if (fireStatus.length >= fireTreshold) {
         message.innerHTML = "Game Over!";
         myStopFunction();
     }
@@ -88,6 +82,7 @@ function myStopFunction() {
     currentWord.innerHTML = "";
     wordInput.value="";
     document.querySelector("#game-area").style.padding="0";
+    hideItems();
 }
 
 // var playerDir = {
@@ -128,15 +123,16 @@ function startGame() {
     }
     time=180;
     score = 0;
+    hideItems();
     setPlayer();
     removePlayer();
     fireGenerator();
     fireSpreader();
     countingDown();
     statusUpdate();
-    startWordMatch();
     document.querySelector("#game-area").style.padding="1%";
-    ocument.querySelector("input").style.backgroundColor = "white";
+    message.innerHTML = "";
+    document.querySelector("input").style.backgroundColor = "white";
 }
 
 
