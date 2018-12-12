@@ -81,11 +81,14 @@ function firePosition() {
     return firePosition;
 }
 
+// function getFire(newFire) {
+//     document.getElementById(newFire);
+// }
+
 function startFire() {
     var newFire = firePosition();
-    var getCell= document.getElementById(newFire);
-    getCell.classList.add("fire");
-
+    var getFire = document.getElementById(newFire);
+    getFire.classList.add("fire");
 }
 
 function spreadFire() {
@@ -95,32 +98,59 @@ function spreadFire() {
     var currentCell = document.querySelectorAll(".cell");
     for (var i = 0; i < currentCell.length; i++) {
         if (currentCell[i].classList.contains("fire")) {
-
             var string = currentCell[i].id;
-            string[3]+string[4];
-
-            var rowIndex;
-            var cellIndex;
-            if (i<10) {
-                rowIndex = parseInt("0" + i);
+            var rowIndex = parseInt(string[3]+string[4]);
+            var cellIndex = parseInt(string[9]+string[10]);
+            var originCell = string[9]+string[10];
+            var originRow = string[3]+string[4];
+            var spreadLeft = cellIndex-=1;
+            var spreadRight = cellIndex+=2;
+            var spreadUp = rowIndex-=1;
+            var spreadDown = rowIndex+=2;
+            if(spreadLeft<10){
+                spreadLeft="0"+spreadLeft;
             }
-            if (j<10) {
-                cellIndex = parseInt("0" + j);
+            if(spreadRight<10){
+                spreadRight="0"+spreadRight;
             }
+            if(spreadUp<10){
+                spreadUp="0"+spreadUp;
+            }
+            if(spreadDown<10){
+                spreadDown="0"+spreadDown;
+            }
+            var leftFire = "row"+originRow+"cell"+spreadLeft;
+            var rightFire = "row"+originRow+"cell"+spreadRight;
+            var upFire = "row"+spreadUp+"cell"+originCell;
+            var downFire = "row"+spreadDown+"cell"+originCell;
 
+            var startLeft = document.getElementById(leftFire);
+            startLeft.classList.add("fire");
 
-            var currentFire = i;
-            var fireLeft = (currentFire-=1);
-            // var fireRight = (currentFire+=2);
-            console.log(i)
-            console.log("fireLeft" + fireLeft)
-            // console.log("fireRight" + fireRight)
-            currentCell[fireLeft].classList.add("fire");
-            // currentCell[fireRight].classList.add("fire");
+            var startRight = document.getElementById(rightFire);
+            startRight.classList.add("fire");
+
+            var startUp = document.getElementById(upFire);
+            startUp.classList.add("fire");
+
+            var startDown = document.getElementById(downFire);
+            startDown.classList.add("fire");
+
+            console.log("The original position is: row " + originRow + " cell " + originCell + "It will spread left to " + leftFire + ". It will spread right to " + rightFire + ". it will spread up to " + upFire+ ". It will spread down to "+ downFire + ".");
         }
-        // for (var j = 0; j < playArea; j++) {
     }
+
+        //     var currentFire = i;
+        //     var fireLeft = (currentFire-=1);
+        //     // var fireRight = (currentFire+=2);
+        //     console.log(i)
+        //     console.log("fireLeft" + fireLeft)
+        //     // console.log("fireRight" + fireRight)
+        //     currentCell[fireLeft].classList.add("fire");
+        //     // currentCell[fireRight].classList.add("fire");
+        // }
 }
+
 
 function playerMove(e) {
     // keyCode for up arrow key is 38
