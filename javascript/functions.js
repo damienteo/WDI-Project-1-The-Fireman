@@ -1,38 +1,125 @@
+// function positionNew() {
+//     var updateRow = playerPosition.row;
+//     var updateCell = playerPosition.cell;
+// }
 
-function drawPlayer() {
+function positionUpdate() {
     var updateRow = playerPosition.row;
     var updateCell = playerPosition.cell;
-    var newPosition = "row"+updateRow+"cell"+updateCell;
+    var newPosition;
+    var getCell;
+    if ((updateRow<10)&&(updateCell<10)) {
+        newPosition = "row0"+updateRow+"cell0"+updateCell;
+        getCell= document.getElementById(newPosition);
+        getCell.classList.add("player");
+        }   else if (updateRow<10) {
+            newPosition = "row0"+updateRow+"cell"+updateCell;
+            getCell= document.getElementById(newPosition);
+            getCell.classList.add("player");
+        }   else if (updateCell<10)  {
+            newPosition = "row"+updateRow+"cell0"+updateCell;
+            getCell= document.getElementById(newPosition);
+            getCell.classList.add("player");
+        }   else    {
+            newPosition = "row"+updateRow+"cell"+updateCell;
+            getCell= document.getElementById(newPosition);
+            getCell.classList.add("player");
+        }
+    return newPosition;
+}
+
+function positionCurrent() {
+    var updateRow = playerPosition.row;
+    var updateCell = playerPosition.cell;
+    var currentPosition;
+    if ((updateRow<10)&&(updateCell<10)) {
+        currentPosition = "row0"+updateRow+"cell0"+updateCell;
+        }   else if (updateRow<10) {
+            currentPosition = "row0"+updateRow+"cell"+updateCell;
+        }   else if (updateCell<10)  {
+            currentPosition = "row"+updateRow+"cell0"+updateCell;
+        }   else    {
+            currentPosition = "row"+updateRow+"cell"+updateCell;
+        }
+    return currentPosition;
+}
+
+function drawPlayer() {
+    positionUpdate();
+    var newPosition = positionUpdate();
     var getCell= document.getElementById(newPosition);
-    getCell.classList.add("player");
     if (getCell.className == "cell fire player") {
         startType();
         typingOn = true;
         getCell.classList.remove("fire");
-        // if (typeResult == true) {
-        //     typingOn = false;
-        // }
     }
 }
 
 function clearPlayer() {
-    var updateRow = playerPosition.row;
-    var updateCell = playerPosition.cell;
-    var newPosition = "row"+updateRow+"cell"+updateCell;
+    var currentPosition = positionCurrent();
     var allPlayers = document.querySelectorAll(".player");
     for (var i=0; i<allPlayers.length; i++){
-        if (allPlayers[i].id != newPosition) {
+        if (allPlayers[i].id != currentPosition) {
             allPlayers[i].classList.remove("player");
         }
     }
 }
 
-function startFire() {
+function firePosition() {
     var fireRow = Math.floor(Math.random() * playArea);
     var fireCell = Math.floor(Math.random() * playArea);
-    var firePosition = "row"+fireRow+"cell"+fireCell;
-    var getCell= document.getElementById(firePosition);
+    var firePosition;
+    if ((fireRow<10)&&(fireCell<10)) {
+        firePosition = "row0"+fireRow+"cell0"+fireCell;
+        }   else if (fireRow<10) {
+            firePosition = "row0"+fireRow+"cell"+fireCell;
+        }   else if (fireCell<10)  {
+            firePosition = "row"+fireRow+"cell0"+fireCell;
+        }   else    {
+            firePosition = "row"+fireRow+"cell"+fireCell;
+        }
+    return firePosition;
+}
+
+function startFire() {
+    var newFire = firePosition();
+    var getCell= document.getElementById(newFire);
     getCell.classList.add("fire");
+
+}
+
+function spreadFire() {
+    // var allFires = document.querySelectorAll(".fire");
+    // for (var i=0; i<allFires.length; i++){
+    // var currentRow = document.querySelectorAll(".row");
+    var currentCell = document.querySelectorAll(".cell");
+    for (var i = 0; i < currentCell.length; i++) {
+        if (currentCell[i].classList.contains("fire")) {
+
+            var string = currentCell[i].id;
+            string[3]+string[4];
+
+            var rowIndex;
+            var cellIndex;
+            if (i<10) {
+                rowIndex = parseInt("0" + i);
+            }
+            if (j<10) {
+                cellIndex = parseInt("0" + j);
+            }
+
+
+            var currentFire = i;
+            var fireLeft = (currentFire-=1);
+            // var fireRight = (currentFire+=2);
+            console.log(i)
+            console.log("fireLeft" + fireLeft)
+            // console.log("fireRight" + fireRight)
+            currentCell[fireLeft].classList.add("fire");
+            // currentCell[fireRight].classList.add("fire");
+        }
+        // for (var j = 0; j < playArea; j++) {
+    }
 }
 
 function playerMove(e) {
