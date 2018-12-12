@@ -136,9 +136,6 @@ function convertTop(spread){
 }
 
 function spreadFire() {
-    // var allFires = document.querySelectorAll(".fire");
-    // for (var i=0; i<allFires.length; i++){
-    // var currentRow = document.querySelectorAll(".row");
     var currentCell = document.querySelectorAll(".cell");
     for (var i = 0; i < currentCell.length; i++) {
         if (currentCell[i].classList.contains("fire")) {
@@ -148,30 +145,16 @@ function spreadFire() {
             var originCell = string[9]+string[10];
             var originRow = string[3]+string[4];
             var spreadLeft = cellIndex-=1;
-            // var spreadRight = cellIndex+=2;
             var spreadUp = rowIndex-=1;
-            // var spreadDown = rowIndex+=2;
 
             spreadLeft=convertNegative(spreadLeft);
-
-            // spreadRight=convertTop(spreadRight);
-            // spreadRight=convertNegative(spreadRight);
-            // console.log("spreadRight");
-
             spreadUp=convertNegative(spreadUp);
 
             var leftFire = "row"+originRow+"cell"+spreadLeft;
-            // var rightFire = "row"+originRow+"cell"+spreadRight;
-            // console.log(rightFire);
             var upFire = "row"+spreadUp+"cell"+originCell;
-            // var downFire = "row"+spreadDown+"cell"+originCell;
 
             var startLeft = document.getElementById(leftFire);
             startLeft.classList.add("fire");
-
-            // var startRight = document.getElementById(rightFire);
-            // console.log(startRight);
-            // startRight.classList.add("fire");
 
             var startUp = document.getElementById(upFire);
             startUp.classList.add("fire");

@@ -9,11 +9,10 @@
 //redo format of rest of page (background is green? font is dark brown)
 //levels based on time fire spreads, letters in words, time before help arrives (select with radio buttons)
 // generating wordlist from an API
-// fires have timer which will cause fire to spread (setTimeOut, queryselectorall, for i=0, j = 0, i + 1, j+ 1, i - 1, j -1, i + 1, j + 0, i + 0, j+ 0)
-// fires to start at different cell if cell already has fire class (if, else)
+
+
 //note: to prevent further appending after initial start of game (hide start button)
-// reset game mid-game (might be unnecessary)
-// displaying percentage of forest on fire as a progress bar
+
 //fixing the issue where the div css does not update when the player is on the fire div (what is currently stopping it?)
 // mediaquery for when browser is below a certain width (may not be possible given the interface of the game)
 
@@ -61,7 +60,11 @@ function removePlayer() {
 }
 
 function fireGenerator() {
-    generatingFire = setInterval(startFire, 2000);
+    generatingFire = setInterval(startFire, 4000);
+}
+
+function fireSpreader() {
+    spreadingFire = setInterval(spreadFire, 12000);
 }
 
 function countingDown() {
@@ -76,6 +79,7 @@ function myStopFunction() {
     clearInterval(settingPlayer);
     clearInterval(removingPlayer);
     clearInterval(generatingFire);
+    clearInterval(spreadingFire);
     clearInterval(counter);
     clearInterval(updatingStatus);
     stopWordMatch();
@@ -126,6 +130,7 @@ function startGame() {
     setPlayer();
     removePlayer();
     fireGenerator();
+    fireSpreader();
     countingDown();
     statusUpdate();
     startWordMatch();
