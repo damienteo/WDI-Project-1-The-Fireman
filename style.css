@@ -4,14 +4,14 @@
 }
 
 html {
-    background-color: black;
+    background-color: #98FB98;
     z-index: -1;
 }
 
 body {
     margin: 0 10%;
     text-align: center;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
 }
 
 div {
@@ -21,31 +21,33 @@ div {
 
 .header {
     display:inline-block;
-    background-color: black;
-    color: white;
+    background-color: #2b1d0e;
+    color: #98FB98;;
     width: 100%;
-    margin: 2% 0;
+    margin: 0;
+    padding: 1% 0;
 }
 
 .main {
     padding: 1% 0 3% 0;
     width: 100%;
     border: black solid 1%;
-    background-color:white;
+    background-color:#98FB98;;
     text-align: center;
 }
 
 #game-area {
-    background-color: #006400;
+    background-color: #808000;
     display: inline-block;
-    margin-top: 1%;
+    margin-top: 1% 0 0 0;
+    border-radius:5%;
 }
 
 .cell {
     height: 20px;
     width: 20px;
     background-color: green;
-    background-image: url("images/tree.png");
+    background-image: url("images/tree2.png");
     background-size: cover;
     position: relative;
     display: inline-block;
@@ -55,14 +57,16 @@ div {
 
 .footer {
     display: inline-block;
-    background-color: black;
+    background-color: #2b1d0e;
     color: white;
     width: 100%;
+    padding: 1% 0;
+    margin: 0;
 }
 
 .fire {
     background-color: red;
-    background-image: url("images/fire.png");
+    background-image: url("images/fire3.png");
     background-size: cover;
     animation: shake 2s;
     animation-iteration-count: infinite;
@@ -84,7 +88,7 @@ div {
 
 .player {
     background-color: blue;
-    background-image: url("images/fireman2.png");
+    background-image: url("images/fireman3.png");
     background-size: cover;
 }
 
@@ -98,7 +102,6 @@ h2 {
 
 .userMenu {
     display: inline-block;
-    /*background-color: red;*/
     vertical-align:top;
     margin: 5% 2%;
     text-align: center;
@@ -108,15 +111,28 @@ h2 {
     margin: 5% 0;
 }
 
+input {
+    border: 10px solid #2b1d0e;
+    padding: 15px;
+    outline: none;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+}
+
 button {
-    background-color: black;
+    background-color: #2b1d0e;
     color: white;
     border: 0;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     padding: 15px 32px;
     font-size: 30px;
     margin: 0 auto;
-    display: block;
+    display: inline-block;
+}
+
+#fireStatus {
+    color: #8B0000;
+    font-weight: bold;
 }
 
 

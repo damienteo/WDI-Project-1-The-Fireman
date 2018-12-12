@@ -1,20 +1,20 @@
 // In this game, the player is a fireman who is stationed at the forest. As it is the dry season, fires would auomatically start. It is the player's job to limit the spread of said fires before help arrives. If the fires spread beyond a certain point, it is determined that the forest will be beyond saving.
 // The blue div represents the player. The green div represents the trees. A fire is highighted by a red div.
 // Time left is highlighted by the timer. Once 50% of the forest is on fire, the player loses the game.
+//fire starts in two ways. They either start randomly, or spread via wind from existing fires. The wind blows in the northwest direction.
 
-//align buttons (how?)
 // popup with clear instructions - append div (inner html will dictate the content) (style will be determined by css)
-//resize fireimage
-// stop the div from moving when the fire image shakes (increase the size of the div, or add padding?)
-//redo format of rest of page (background is green? font is dark brown)
+//format input
+
 //levels based on time fire spreads, letters in words, time before help arrives (select with radio buttons)
 // generating wordlist from an API
+//fixing faulty scoring after start of new game
 
 
 //note: to prevent further appending after initial start of game (hide start button)
 
 //fixing the issue where the div css does not update when the player is on the fire div (what is currently stopping it?)
-// mediaquery for when browser is below a certain width (may not be possible given the interface of the game)
+
 
 window.onload=function() {
     document.getElementById("startButton").addEventListener("click", startGame)
@@ -44,7 +44,7 @@ function countdown() {
 function checkStatus() {
     var fireStatus = document.querySelectorAll(".fire");
     var firePercentage = Math.round((fireStatus.length/(playArea*playArea))*100)
-    fireLeft.innerHTML = firePercentage+"% of the forest is on fire.";
+    fireLeft.innerHTML = firePercentage;
     if ((time <= 0) || (fireStatus.length >= fireTreshold)) {
         message.innerHTML = "Game Over!";
         myStopFunction();
@@ -87,6 +87,7 @@ function myStopFunction() {
     typingOn = false;
     currentWord.innerHTML = "";
     wordInput.value="";
+    document.querySelector("#game-area").style.padding="0";
 }
 
 // var playerDir = {
@@ -134,6 +135,8 @@ function startGame() {
     countingDown();
     statusUpdate();
     startWordMatch();
+    document.querySelector("#game-area").style.padding="1%";
+    ocument.querySelector("input").style.backgroundColor = "white";
 }
 
 

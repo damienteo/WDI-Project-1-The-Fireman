@@ -10,7 +10,7 @@ function startType() {
     showWord(wordList);
     wordInput.addEventListener("input", wordMatch);
     wordInput.focus();
-    message.innerHTML = "";
+    document.querySelector("input").style.backgroundColor = "white";
     wordInput.value="";
 }
 
@@ -32,10 +32,10 @@ function wordMatch(wordInput) {
 
 function matchSuccess() {
     if (wordInput.value == currentWord.innerHTML) {
-        message.innerHTML = "Correct!";
+        document.querySelector("input").style.backgroundColor = "#ADD8E6";
         return true;
     } else {
-        message.innerHTML = "";
+        document.querySelector("input").style.backgroundColor = "white";
         return false;
     }
 }

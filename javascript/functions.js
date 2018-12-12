@@ -204,10 +204,10 @@ function clearGame() {
 var hoverStart =  function() {
     document.getElementById("startButton").addEventListener("mouseover", function(){
     document.getElementById("startButton").style.backgroundColor = "white";
-    document.getElementById("startButton").style.color = "black";
+    document.getElementById("startButton").style.color = "#2b1d0e";
     })
     document.getElementById("startButton").addEventListener("mouseout", function(){
-    document.getElementById("startButton").style.backgroundColor = "black";
+    document.getElementById("startButton").style.backgroundColor = "#2b1d0e";
       document.getElementById("startButton").style.color = "white";
     })
 }
@@ -215,10 +215,10 @@ var hoverStart =  function() {
 var hoverInstruction =  function() {
     document.getElementById("instructionButton").addEventListener("mouseover", function(){
     document.getElementById("instructionButton").style.backgroundColor = "white";
-    document.getElementById("instructionButton").style.color = "black";
+    document.getElementById("instructionButton").style.color = "#2b1d0e";
     })
     document.getElementById("instructionButton").addEventListener("mouseout", function(){
-    document.getElementById("instructionButton").style.backgroundColor = "black";
+    document.getElementById("instructionButton").style.backgroundColor = "#2b1d0e";
       document.getElementById("instructionButton").style.color = "white";
     })
 }
