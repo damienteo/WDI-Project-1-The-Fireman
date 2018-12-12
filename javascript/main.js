@@ -33,32 +33,6 @@ document.addEventListener('keydown', playerMove);
 hoverStart();
 hoverInstruction();
 
-var playArea = 20;
-var fireTreshold = (playArea*playArea)/2;
-
-var gameArea = document.getElementById("game-area");
-
-var playerPosition = {
-    row: 1,
-    cell: 1
-};
-
-var message = document.querySelector("#notification");
-
-var fireLeft = document.querySelector("#fireStatus");
-
-var timeLeft = document.querySelector(".timeLeft");
-
-var scoreDisplay = document.querySelector(".scoreDisplay");
-
-var time = 180;
-
-var score;
-
-var run;
-
-var typingOn = false;
-
 function countdown() {
     if (time > 0) {
         time --;

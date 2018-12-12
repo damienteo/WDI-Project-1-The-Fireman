@@ -1,3 +1,29 @@
+var playArea = 20;
+var fireTreshold = (playArea*playArea)/2;
+
+var gameArea = document.getElementById("game-area");
+
+var playerPosition = {
+    row: 1,
+    cell: 1
+};
+
+var message = document.querySelector("#notification");
+
+var fireLeft = document.querySelector("#fireStatus");
+
+var timeLeft = document.querySelector(".timeLeft");
+
+var scoreDisplay = document.querySelector(".scoreDisplay");
+
+var time = 180;
+
+var score;
+
+var run;
+
+var typingOn = false;
+
 // function positionNew() {
 //     var updateRow = playerPosition.row;
 //     var updateCell = playerPosition.cell;
@@ -91,6 +117,24 @@ function startFire() {
     getFire.classList.add("fire");
 }
 
+function convertNegative(spread) {
+    if(spread<10){
+        if (spread<0){
+            spread="00"
+        } else {
+        spread="0"+spread;
+        }
+    } return spread
+}
+
+function convertTop(spread){
+    var top = playArea-=1;
+    if(spread>playArea){
+        spread=top;
+    }
+    return spread
+}
+
 function spreadFire() {
     // var allFires = document.querySelectorAll(".fire");
     // for (var i=0; i<allFires.length; i++){
@@ -104,51 +148,35 @@ function spreadFire() {
             var originCell = string[9]+string[10];
             var originRow = string[3]+string[4];
             var spreadLeft = cellIndex-=1;
-            var spreadRight = cellIndex+=2;
+            // var spreadRight = cellIndex+=2;
             var spreadUp = rowIndex-=1;
-            var spreadDown = rowIndex+=2;
-            if(spreadLeft<10){
-                spreadLeft="0"+spreadLeft;
-            }
-            if(spreadRight<10){
-                spreadRight="0"+spreadRight;
-            }
-            if(spreadUp<10){
-                spreadUp="0"+spreadUp;
-            }
-            if(spreadDown<10){
-                spreadDown="0"+spreadDown;
-            }
+            // var spreadDown = rowIndex+=2;
+
+            spreadLeft=convertNegative(spreadLeft);
+
+            // spreadRight=convertTop(spreadRight);
+            // spreadRight=convertNegative(spreadRight);
+            // console.log("spreadRight");
+
+            spreadUp=convertNegative(spreadUp);
+
             var leftFire = "row"+originRow+"cell"+spreadLeft;
-            var rightFire = "row"+originRow+"cell"+spreadRight;
+            // var rightFire = "row"+originRow+"cell"+spreadRight;
+            // console.log(rightFire);
             var upFire = "row"+spreadUp+"cell"+originCell;
-            var downFire = "row"+spreadDown+"cell"+originCell;
+            // var downFire = "row"+spreadDown+"cell"+originCell;
 
             var startLeft = document.getElementById(leftFire);
             startLeft.classList.add("fire");
 
-            var startRight = document.getElementById(rightFire);
-            startRight.classList.add("fire");
+            // var startRight = document.getElementById(rightFire);
+            // console.log(startRight);
+            // startRight.classList.add("fire");
 
             var startUp = document.getElementById(upFire);
             startUp.classList.add("fire");
-
-            var startDown = document.getElementById(downFire);
-            startDown.classList.add("fire");
-
-            console.log("The original position is: row " + originRow + " cell " + originCell + "It will spread left to " + leftFire + ". It will spread right to " + rightFire + ". it will spread up to " + upFire+ ". It will spread down to "+ downFire + ".");
         }
     }
-
-        //     var currentFire = i;
-        //     var fireLeft = (currentFire-=1);
-        //     // var fireRight = (currentFire+=2);
-        //     console.log(i)
-        //     console.log("fireLeft" + fireLeft)
-        //     // console.log("fireRight" + fireRight)
-        //     currentCell[fireLeft].classList.add("fire");
-        //     // currentCell[fireRight].classList.add("fire");
-        // }
 }
 
 
