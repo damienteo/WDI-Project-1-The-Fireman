@@ -1,5 +1,5 @@
 # WDI-Project-1-The Fireman
-The Fireman is a typing-based game, done as part of Project 1 under General Assembly Singapore's Wed Development Immersive. The project involves languages such as HTML, JavaScript, and CSS.
+The Fireman is a typing-based game, done as part of Project 1 under General Assembly Singapore's Web Development Immersive. The project involves languages such as HTML, JavaScript, and CSS.
 
 # Instructions
 - Click on the 'Start Game' button for the game map to be displayed.
