@@ -13,7 +13,7 @@ The Fireman is a typing-based game, done as part of Project 1 under General Asse
 - Display a game in the browser
 - Separate HTML, CSS, Javascript files
 - Javascript is used for DOM manipulation
-- Game is deployed online (https://fireman-game.herokuapp.com/)
+- Game is deployed online [here](https://fireman-game.herokuapp.com/)
 
 # Pending
 Connection to a dictionary API to generate new random words
