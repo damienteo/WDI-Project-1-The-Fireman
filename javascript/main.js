@@ -3,18 +3,14 @@
 // Time left is highlighted by the timer. Once 50% of the forest is on fire, the player loses the game.
 //fire starts in two ways. They either start randomly, or spread via wind from existing fires. The wind blows in the northwest direction.
 
-//levels based on time fire spreads, letters in words, time before help arrives (select with radio buttons)
-// generating wordlist from an API
-//fixing the issue where the div css does not update when the player is on the fire div (what is currently stopping it?)
 
-
-window.onload=function() {
+window.onload = function () {
     document.getElementById("startButton").addEventListener("click", startGame)
 };
 
-window.addEventListener("keydown", function(e) {
+window.addEventListener("keydown", function (e) {
     // arrow keys
-    if([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+    if ([37, 38, 39, 40].indexOf(e.keyCode) > -1) {
         e.preventDefault();
     }
 }, false);
@@ -25,7 +21,7 @@ hoverStart();
 
 function countdown() {
     if (time > 0) {
-        time --;
+        time--;
     } else if (time === 0) {
         run = false;
     }
@@ -34,12 +30,12 @@ function countdown() {
 
 function checkStatus() {
     var fireStatus = document.querySelectorAll(".fire");
-    var firePercentage = Math.round((fireStatus.length/(playArea*playArea))*100)
+    var firePercentage = Math.round((fireStatus.length / (playArea * playArea)) * 100)
     fireLeft.innerHTML = firePercentage;
     if (time <= 0) {
         message.innerHTML = "You win!";
         myStopFunction();
-    }   else if (fireStatus.length >= fireTreshold) {
+    } else if (fireStatus.length >= fireTreshold) {
         message.innerHTML = "Game Over!";
         myStopFunction();
     }
@@ -69,6 +65,7 @@ function statusUpdate() {
     updatingStatus = setInterval(checkStatus, 50);
 }
 
+// this function literally stops and clears everything when the game meets the ending conditions
 function myStopFunction() {
     clearInterval(settingPlayer);
     clearInterval(removingPlayer);
@@ -80,25 +77,17 @@ function myStopFunction() {
     clearGame();
     typingOn = false;
     currentWord.innerHTML = "";
-    wordInput.value="";
-    document.querySelector("#game-area").style.padding="0";
+    wordInput.value = "";
+    document.querySelector("#game-area").style.padding = "0";
     hideItems();
 }
 
-// var playerDir = {
-//     "up": 1,
-//     "right": 2,
-//     "down": 3,
-//     "left": 4
-// };
-
-// var currentPlayerDir = playerDir["right"];
-
+//This is the function which literally starts everything when the player clicks the 'Start Game button. Generally, the fire and map mechanics are in the 'main.js' file while the typing mechanics are in the 'typing.js' file
 function startGame() {
     for (var i = 0; i < playArea; i++) {
         var rowDiv = document.createElement('div');
         rowDiv.className = "row";
-        rowDiv.id = "row"+i;
+        rowDiv.id = "row" + i;
         gameArea.appendChild(rowDiv);
         var currentRow = document.querySelectorAll(".row")[i];
         for (var j = 0; j < playArea; j++) {
@@ -106,22 +95,22 @@ function startGame() {
             cellDiv.className = "cell";
             var rowIndex;
             var cellIndex;
-            if ((i<10)&&(j<10)) {
-                cellDiv.id = "row0"+i+"cell0"+j;
+            if ((i < 10) && (j < 10)) {
+                cellDiv.id = "row0" + i + "cell0" + j;
                 currentRow.appendChild(cellDiv);
-            }   else if (i<10) {
-                cellDiv.id = "row0"+i+"cell"+j;
+            } else if (i < 10) {
+                cellDiv.id = "row0" + i + "cell" + j;
                 currentRow.appendChild(cellDiv);
-            }   else if (j<10)  {
-                cellDiv.id = "row"+i+"cell0"+j;
+            } else if (j < 10) {
+                cellDiv.id = "row" + i + "cell0" + j;
                 currentRow.appendChild(cellDiv);
-            }   else    {
-                cellDiv.id = "row"+i+"cell"+j;
+            } else {
+                cellDiv.id = "row" + i + "cell" + j;
                 currentRow.appendChild(cellDiv);
             }
         }
     }
-    time=180;
+    time = 180;
     score = 0;
     hideItems();
     setPlayer();
@@ -130,12 +119,7 @@ function startGame() {
     fireSpreader();
     countingDown();
     statusUpdate();
-    document.querySelector("#game-area").style.padding="1%";
+    document.querySelector("#game-area").style.padding = "1%";
     message.innerHTML = "";
     document.querySelector("input").style.backgroundColor = "white";
 }
-
-
-
-
-
